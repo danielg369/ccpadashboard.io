@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e6f0ff; /* Match this color with your existing page background */
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 65% 35%; /* 65% for the YouTube video, 35% for the weather/clock */
+            height: 100vh; /* Full viewport height */
+        }
+        .left-content {
+            padding: 10px;
+            background-color: #fff;
+        }
+        .right-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Spread the clock at the top and weather at the bottom */
+            padding: 10px;
+            background-color: #e6f0ff; /* Match this with the page's background color */
+            gap: 20px; /* Space between widgets */
+        }
+        .clock {
+            display: flex;
+            justify-content: center; /* Center the clock horizontally */
+            align-items: center;
+            width: 100%; /* Make the clock take the full width */
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 300px; /* Adjust the height as needed */
+            background-color: #e6f0ff; /* Match the background to blend in */
+        }
+        .image-container img {
+            max-width: 100%; /* Ensure the image scales within the container */
+            max-height: 100%;
+            object-fit: cover; /* Cover the container without stretching */
+            background-color: #e6f0ff; /* Match the background */
+        }
+        .weather-widget {
+            margin-top: 20px;
+        }
+        iframe {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <!-- Left Content: YouTube Video -->
+        <div class="left-content">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/glENND73k4Q" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Right Content: Clock, Image, and Weather -->
+        <div class="right-content">
+            <!-- Clock Widget at the Top -->
+            <div class="clock">
+                <iframe scrolling="no" frameborder="no" clocktype="html5" 
+                        style="overflow:hidden;width:100%;height:250px;"
+                        src="https://www.clocklink.com/html5embed.php?clock=049&timezone=PST&color=white&size=450&Title=&Message=&Target=&From=2024,1,1,0,0,0&Color=white">
+                </iframe>
+            </div>
+
+            <!-- Image in Between Widgets -->
+            <div class="image-container">
+                <img src="CityCreek-1200x800-1.jpg" alt="Your Image">
+            </div>
+
+            <!-- Weather Widget at the Bottom -->
+            <div class="weather-widget">
+                <a class="weatherwidget-io" href="https://forecast7.com/en/38d58n121d49/sacramento/?unit=us" 
+                   data-label_1="SACRAMENTO" data-label_2="WEATHER" data-font="Verdana" 
+                   data-icons="Climacons Animated" data-theme="original">SACRAMENTO WEATHER</a>
+                <script>
+                    !function(d,s,id){
+                        var js,fjs=d.getElementsByTagName(s)[0];
+                        if(!d.getElementById(id)){
+                            js=d.createElement(s); js.id=id;
+                            js.src='https://weatherwidget.io/js/widget.min.js';
+                            fjs.parentNode.insertBefore(js,fjs);
+                        }
+                    }(document,'script','weatherwidget-io-js');
+                </script>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
